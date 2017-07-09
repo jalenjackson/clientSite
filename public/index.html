@@ -18,319 +18,483 @@
 
 <script>
 
-      $(".ruby-link").click(function(){
-         $(".account-img").attr("src", "https://freivincampbell.github.io/assets/img/ruby.png");
-      });
+    var canvas = document.getElementsByClassName('canvas')[0],
+        ctx = canvas.getContext('2d'), buffer = 100;
 
-      $(".home-link").click(()=>{
-          $(".account-img").attr("src", "https://media.giphy.com/media/AEcZfXZZNCcQU/200.gif");
-      });
+    function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    resize();
+    window.onresize = resize;
 
+    function noise(ctx) {
 
-      $(".tools").click(function(){
-          $(".account-img").attr("src", "https://media.giphy.com/media/A06UFEx8jxEwU/giphy.gif");
+        var w = ctx.canvas.width,
+            h = ctx.canvas.height,
+            idata = ctx.createImageData(w, h),
+            buffer32 = new Uint32Array(idata.data.buffer),
+            len = buffer32.length,
+            i = 0;
 
-      });
+        for(; i < len;)
+            buffer32[i++] = ((buffer * Math.random())|0) << 24;
 
-      $(".about-me-link").click(function() {
-          $(".account-img").attr("src", "http://b.vimeocdn.com/ts/802/724/80272486_200.jpg");
+        ctx.putImageData(idata, 0, 0);
+    }
 
-      });
+    var toggle = true;
 
-      $(".react-link").click(function(){
-          $(".account-img").attr("src", "https://facebook.github.io/react/img/logo.svg")
-      });
-
-      $(".c-link").click(function(){
-          $(".account-img").attr("src", "https://www.edx.org/sites/default/files/styles/course_video_banner/public/course/image/featured-card/dev210x-about_page_image-318x210.jpg?itok=sxqUEGWL")
-      });
-      $(".html-link").click(function(){
-          $(".account-img").attr("src", "https://www.sololearn.com/Uploads/html-css.jpg")
-      });
-      $(".csharp-link").click(function(){
-          $(".account-img").attr("src", "https://career.guru99.com/wp-content/uploads/2012/04/C-Sharp-Interview-Questions.jpg")
-      });
-
-      $(".fav-music").on("click",function(){
-
-          $(".account-img").attr("src", "https://upload.wikimedia.org/wikipedia/commons/1/11/Imagine_Dragons_2013.jpg")
-
-          if($(".videoPlayer").attr("src") != "https://www.youtube.com/embed/7wtfhZwyrcc" ) {
-              $(".videoPlayer").attr("src", "https://www.youtube.com/embed/7wtfhZwyrcc");
-          }
-          $(".video-player-container").addClass("move-back");
-
-      });
-
-
-      $("a").click(function(){
-         $(".animated-dropdown").hide();
-      });
-
-      $(window).on("load", function(){
-          setTimeout(function(){
-              $(".intro-container").fadeOut("slow");
-          },2000);
-      });
-
-      $(".times").click(function(){
-          $(".music-img").fadeIn("slow");
-
-          $(".video-player-container").removeClass("move-back");
-
-      });
-
-      $(".music-img").click(()=>{
-          $(".music-img").fadeOut("slow");
-          $(".video-player-container").addClass("move-back");
-      });
-
-      $(".draw-border").click(function(){
-          $(".music-img").fadeOut("slow");
-          $(".video-player-container").addClass("move-back");
-      });
-
-    $(window).scroll((event) => {
-        var scroll = $(window).scrollTop();
-
-        console.log(scroll);
-
-        if(scroll >= 70){
-            $(".main-navbar").css({
-                background:"white",
-                height:"80px",
-                borderBottom: "7px solid black",
-                zIndex: "6"
-            });
-
-
-
-            $(".left-side-nav-items").css({
-                marginTop: "30px"
-            });
-            $(".fa-bars").css({
-                marginTop: "30px"
-            });
-            $(".lower-overlay").css({
-                top: "50px"
-            });
-
-            $(".profile-pic").addClass("move-down");
-
-            $(".title-container").css({
-                marginTop: "25px"
-            });
-            $(".right-side-nav-items").css({
-                marginTop: "25px"
-            });
-            $(".animated-dropdown").css({
-                marginTop: "-70px"
-            });
-        } else if(scroll < 70) {
-            $(".main-navbar").css({
-                background:"none",
-                height:"150px",
-                borderBottom: "none",
-                zIndex: "0"
-
-            });
-
-
-
-            $(".fa-bars").css({
-                marginTop: "60px"
-            });
-            $(".profile-pic").removeClass("move-down");
-
-            $(".left-side-nav-items").css({
-                marginTop: "75px"
-            });
-            $(".lower-overlay").css({
-                top: "150px"
-            });
-            $(".animated-dropdown").css({
-                marginTop: "-30px"
-            });
-            $(".title-container").css({
-                marginTop: "70px"
-            });
-            $(".right-side-nav-items").css({
-                marginTop: "70px"
-            });
-
-
+    // added toggle to get 30 FPS instead of 60 FPS
+    (function loop() {
+        toggle = !toggle;
+        if (toggle) {
+            requestAnimationFrame(loop);
+            return;
         }
-
-        if(window.innerWidth > 860) {
-
-            if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-
-
-                if (scroll >= 2000) {
-                    $(".whats-new-side-container").css({
-                        position: "fixed",
-                        top: "-40%",
-                        right: 0
-                    });
+        noise(ctx);
+        requestAnimationFrame(loop);
+    })();
 
 
-                }
 
-                else if (scroll < 2000) {
-                    $(".whats-new-side-container").css({
-                        position: "absolute",
-                        top: '140px',
-                        left: '64%'
-                    });
-                }
 
-                if (scroll > 2960) {
-                    $(".whats-new-side-container").css({
-                        position: "absolute",
-                        top: '1000px',
-                        left: '64%'
+    var img1 = $(".img1"), img2 = $(".img2"), img3 = $(".img3") , img4 = $(".img4") , img5 = $(".img5") , img6 = $(".img6");
+    var images = [img1,img2,img3,img4,img5,img6];
+    images[0].hide();
+    images[1].hide();
+    images[2].hide();
+    images[3].hide();
+    images[4].hide();
+    images[5].hide();
+    $(".nav").hide();
+    $(".svg2").hide();
+    $(".about_kemi").hide();
 
-                    });
-                }
-            } else {
-                $(".whats-new-side-container").css({
-                    position: "absolute",
-                    top: '140px',
-                    left: '64%'
-                });
+
+
+    $(window).on("load",function() {
+        console.log("All pics are loaded ")
+        counter = 0 ;
+        var loop = setInterval(function() {
+            counter++;
+
+            $(".home-link").click(function(){
+               
+
+            });
+
+            if(counter === 1 ) {
+                $(".overlay").fadeOut("slow");
+
+                $("#canvas").addClass("background_change");
+
+                setTimeout(function() {
+                    $(".spacebar").animate({opacity: 1}, 300);
+                },1000)
+                setTimeout(function() {
+                    $(".spacebar1").animate({opacity: 1}, 600);
+
+                },1300)
+                setTimeout(function() {
+                    $(".spacebar2").animate({opacity: 1}, 900);
+
+                },1600)
+
+                images[0].show()
+                images[1].hide().removeClass("zoom");
+                images[2].hide().removeClass("zoom");
+                images[3].hide().removeClass("zoom");
+                images[4].hide().removeClass("zoom");
+                images[5].hide().removeClass("zoom");
+
+            } else if(counter === 2) {
+
+                images[1].show()
+                images[2].hide().removeClass("zoom");
+                images[3].hide().removeClass("zoom");
+                images[4].hide().removeClass("zoom");
+                images[5].hide().removeClass("zoom");
+                images[0].hide().removeClass("zoom");
+
+
+            } else if(counter === 3) {
+                images[2].show()
+                images[0].hide().removeClass("zoom");
+                images[1].hide().removeClass("zoom");
+                images[3].hide().removeClass("zoom");
+                images[4].hide().removeClass("zoom");
+                images[5].hide().removeClass("zoom");
+
+
+            } else if(counter === 4) {
+
+                images[3].show().addClass("zoom");
+                images[0].hide().removeClass("zoom");
+                images[1].hide().removeClass("zoom");
+                images[2].hide().removeClass("zoom");
+                images[4].hide().removeClass("zoom");
+                images[5].hide().removeClass("zoom");
+
+
+
+            } else if(counter === 5) {
+                images[4].show().addClass("zoom");
+                images[0].hide().removeClass("zoom");
+                images[1].hide().removeClass("zoom");
+                images[2].hide().removeClass("zoom");
+                images[3].hide().removeClass("zoom");
+                images[5].hide().removeClass("zoom");
+
+            } else if(counter === 6) {
+                images[5].show().addClass("zoom");
+                images[0].hide().removeClass("zoom");
+                images[1].hide().removeClass("zoom");
+                images[2].hide().removeClass("zoom");
+                images[3].hide().removeClass("zoom");
+                images[4].hide().removeClass("zoom");
+
+
             }
-        }
 
+
+            if(counter === 3) {
+                counter = 0;
+
+            }
+
+
+        },2000);
 
     });
 
 
-    $(".lower-overlay").hide();
-    $(".search-input").hide();
-    $(".animated-dropdown").hide();
-    $(".dropdown-side-img").hide();
-    $(".title-of-product").hide();
-    $(".price-of-product").hide();
-    $(".animated-dropdown-h1").hide();
-    $(".listOf-items-dropdown").hide();
+
+
+    $(".hamburger").click(function() {
+        $(".nav").fadeIn(1000);
+        $(".logo").addClass("moveleft");
+        buffer = 0;
+        $(".about_kemi").fadeIn(1000);
+        $(".hamburger").fadeOut("slow");
+        $(".video").addClass("blur");
+        $(".header_info").fadeOut("slow");
+
+    });
+
+    $(".exit").click(function() {
+        buffer = 120;
+
+        $(".hamburger").fadeIn("slow");
+        $(".about_kemi").fadeOut(1000);
+        $(".header_info").fadeIn("slow");
+        $(".video").removeClass("blur");
 
 
 
-
-     $(".hover-link").hover(function(){
-     $(".animated-dropdown").fadeIn("slow");
-     $(".animated-dropdown").addClass("heightChanger");
-     setTimeout(function(){
-     $(".animated-dropdown-h1").fadeIn("slow").addClass("fadeInUp");
-     $(".listOf-items-dropdown").fadeIn("slow").addClass("fadeInUp");
-
-     },300);
-
-
-
-     setTimeout(function(){
-     $(".title-of-product").fadeIn("slow");
-     $(".price-of-product").fadeIn("slow");
-     $(".dropdown-side-img").fadeIn("slow");
-     },500)
-
-
-     });
-
-     $(".animated-dropdown").hover(function(){
-
-
-
-
-
-
-     }, function(){
-     $(".dropdown-side-img").fadeOut(100);
-
-         $(".title-of-product").fadeOut(100);
-     $(".price-of-product").fadeOut(100);
-     $(".lower-overlay").fadeOut("slow");
-
-
-     $(".animated-dropdown-h1").fadeOut(100);
-     $(".listOf-items-dropdown").fadeOut(100);
-
-     $(".animated-dropdown").removeClass("heightChanger");
-     $(".animated-dropdown").fadeOut(150);
-     });
-
-
-
-
-    $(".fa-search").click(function(){
-        $(".search-input").show();
-
-        $(".search-container").addClass("changeSearchContainerHeight");
-
-    }, function(){
-        $(".search-container").removeClass("changeSearchContainerHeight");
 
     });
 
 </script>
 
 <script>
+
+  $(".ruby-link").click(function(){
+  $(".account-img").attr("src", "https://freivincampbell.github.io/assets/img/ruby.png");
+  });
+
+  $(".home-link").click(()=>{
+  $(".account-img").attr("src", "https://media.giphy.com/media/AEcZfXZZNCcQU/200.gif");
+  });
+
+
+  $(".tools").click(function(){
+  $(".account-img").attr("src", "https://media.giphy.com/media/A06UFEx8jxEwU/giphy.gif");
+
+  });
+
+  $(".about-me-link").click(function() {
+  $(".account-img").attr("src", "http://b.vimeocdn.com/ts/802/724/80272486_200.jpg");
+
+  });
+
+  $(".react-link").click(function(){
+  $(".account-img").attr("src", "https://facebook.github.io/react/img/logo.svg")
+  });
+
+  $(".c-link").click(function(){
+  $(".account-img").attr("src", "https://www.edx.org/sites/default/files/styles/course_video_banner/public/course/image/featured-card/dev210x-about_page_image-318x210.jpg?itok=sxqUEGWL")
+  });
+  $(".html-link").click(function(){
+  $(".account-img").attr("src", "https://www.sololearn.com/Uploads/html-css.jpg")
+  });
+  $(".csharp-link").click(function(){
+  $(".account-img").attr("src", "https://career.guru99.com/wp-content/uploads/2012/04/C-Sharp-Interview-Questions.jpg")
+  });
+
+  $(".fav-music").on("click",function(){
+
+  $(".account-img").attr("src", "https://upload.wikimedia.org/wikipedia/commons/1/11/Imagine_Dragons_2013.jpg")
+
+  if($(".videoPlayer").attr("src") != "https://www.youtube.com/embed/7wtfhZwyrcc" ) {
+  $(".videoPlayer").attr("src", "https://www.youtube.com/embed/7wtfhZwyrcc");
+  }
+  $(".video-player-container").addClass("move-back");
+
+  });
+
+
+  $("a").click(function(){
+  $(".animated-dropdown").hide();
+  });
+
+  $(window).on("load", function(){
+  setTimeout(function(){
+  $(".intro-container").fadeOut("slow");
+  },2000);
+  });
+
+  $(".times").click(function(){
+  $(".music-img").fadeIn("slow");
+
+  $(".video-player-container").removeClass("move-back");
+
+  });
+
+  $(".music-img").click(()=>{
+  $(".music-img").fadeOut("slow");
+  $(".video-player-container").addClass("move-back");
+  });
+
+  $(".draw-border").click(function(){
+  $(".music-img").fadeOut("slow");
+  $(".video-player-container").addClass("move-back");
+  });
+
+  $(window).scroll((event) => {
+
+
+  var scroll = $(window).scrollTop();
+
+
+  $(".parallax-scroll").css({
+      "transform":'translate(0px, ' + scroll/-10 + '%)'
+  });
+
+  console.log(scroll);
+
+  if(scroll >= 50){
+  $(".main-navbar").css({
+  background:"white",
+  height:"80px",
+  borderBottom: "7px solid black",
+  zIndex: "6"
+  });
+
+
+
+  $(".left-side-nav-items").css({
+  marginTop: "30px"
+  });
+  $(".fa-bars").css({
+  marginTop: "30px"
+  });
+  $(".lower-overlay").css({
+  top: "50px"
+  });
+
+  $(".profile-pic").addClass("move-down");
+
+  $(".title-container").css({
+  marginTop: "25px"
+  });
+  $(".right-side-nav-items").css({
+  marginTop: "25px"
+  });
+  $(".animated-dropdown").css({
+  marginTop: "-70px"
+  });
+  } else if(scroll < 70) {
+  $(".main-navbar").css({
+      background: "none",
+      borderBottom: "none",
+      height: "150px"
+   });
+      $(".left-side-nav-items").css({
+          marginTop: "80px"
+      });
+  }
+
+  if(window.innerWidth > 860) {
+
+  if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+
+
+  if (scroll >= 2000) {
+  $(".whats-new-side-container").css({
+  position: "fixed",
+  top: "-40%",
+  right: 0
+  });
+
+
+  }
+
+  else if (scroll < 2000) {
+  $(".whats-new-side-container").css({
+  position: "absolute",
+  top: '140px',
+  left: '64%'
+  });
+  }
+
+  if (scroll > 2960) {
+  $(".whats-new-side-container").css({
+  position: "absolute",
+  top: '1000px',
+  left: '64%'
+
+  });
+  }
+  } else {
+  $(".whats-new-side-container").css({
+  position: "absolute",
+  top: '140px',
+  left: '64%'
+  });
+  }
+  }
+
+
+  });
+
+
+  $(".lower-overlay").hide();
+  $(".search-input").hide();
+  $(".animated-dropdown").hide();
+  $(".dropdown-side-img").hide();
+  $(".title-of-product").hide();
+  $(".price-of-product").hide();
+  $(".animated-dropdown-h1").hide();
+  $(".listOf-items-dropdown").hide();
+
+
+
+
+  $(".hover-link").hover(function(){
+  $(".animated-dropdown").fadeIn("slow");
+  $(".animated-dropdown").addClass("heightChanger");
+  setTimeout(function(){
+  $(".animated-dropdown-h1").fadeIn("slow").addClass("fadeInUp");
+  $(".listOf-items-dropdown").fadeIn("slow").addClass("fadeInUp");
+
+  },300);
+
+
+
+  setTimeout(function(){
+  $(".title-of-product").fadeIn("slow");
+  $(".price-of-product").fadeIn("slow");
+  $(".dropdown-side-img").fadeIn("slow");
+  },500)
+
+
+  });
+
+  $(".animated-dropdown").hover(function(){
+
+
+
+
+
+
+  }, function(){
+  $(".dropdown-side-img").fadeOut(100);
+
+  $(".title-of-product").fadeOut(100);
+  $(".price-of-product").fadeOut(100);
+  $(".lower-overlay").fadeOut("slow");
+
+
+  $(".animated-dropdown-h1").fadeOut(100);
+  $(".listOf-items-dropdown").fadeOut(100);
+
+  $(".animated-dropdown").removeClass("heightChanger");
+  $(".animated-dropdown").fadeOut(150);
+  });
+
+
+
+
+  $(".fa-search").click(function(){
+  $(".search-input").show();
+
+  $(".search-container").addClass("changeSearchContainerHeight");
+
+  }, function(){
+  $(".search-container").removeClass("changeSearchContainerHeight");
+
+  });
+
+  </script>
+
+  <script>
     $(window).scroll(function(){
 
-        wScroll = $(this).scrollTop();
-        console.log(wScroll);
+      wScroll = $(this).scrollTop();
+      console.log(wScroll);
 
-        if(wScroll > 313){
-            $(".underline").addClass("add-width")
-        }
-        if(wScroll > 792){
-            $(".underline2").addClass("add-width")
-        }
+      if(wScroll > 313){
+      $(".underline").addClass("add-width")
+  }
+      if(wScroll > 792){
+      $(".underline2").addClass("add-width")
+  }
 
-        if(wScroll< 313){
-            $(".underline").removeClass("add-width")
+      if(wScroll< 313){
+      $(".underline").removeClass("add-width")
 
-        }
-        if(wScroll < 792){
-            $(".underline2").removeClass("add-width")
-        }
-        $(".parallax-scroll").css({
-            "transform":'translate(0px, ' + wScroll/-10 + '%)'
-        });
+  }
+      if(wScroll < 792){
+      $(".underline2").removeClass("add-width")
+  }
+      $(".parallax-scroll").css({
+      "transform":'translate(0px, ' + wScroll/-10 + '%)'
+  });
 
-        $(".parallax-scroll1").css({
-            "transform":'translate(0px, ' + wScroll/-25 + '%)'
-        });
-        $(".parallax-scroll2").css({
-            "transform":'translate(0px, ' + wScroll/-10 + '%)'
-        });
-        $(".parallax-scroll3").css({
-            "transform":'translate(0px, ' + wScroll/-25 + '%)'
-        });
-        $(".parallax-scrollp").css({
-            "transform":'translate(0px, ' + wScroll/-5 + '%)'
-        });
-        $(".parallax-scrollb").css({
-            "transform":'translate(0px, ' + wScroll/-15 + '%)'
-        });
-        $(".background-blur").css({
-            "transform":'translate(0px, ' + wScroll/-5 + '%) scale(2)'
-        });
+      $(".parallax-scroll1").css({
+      "transform":'translate(0px, ' + wScroll/-25 + '%)'
+  });
+      $(".parallax-scroll2").css({
+      "transform":'translate(0px, ' + wScroll/-10 + '%)'
+  });
+      $(".parallax-scroll3").css({
+      "transform":'translate(0px, ' + wScroll/-25 + '%)'
+  });
+      $(".parallax-scrollp").css({
+      "transform":'translate(0px, ' + wScroll/-5 + '%)'
+  });
+      $(".parallax-scrollb").css({
+      "transform":'translate(0px, ' + wScroll/-15 + '%)'
+  });
+      $(".background-blur").css({
+      "transform":'translate(0px, ' + wScroll/-5 + '%) scale(2)'
+  });
 
 
-    });
+  });
 
     $(".week-img-overlay").hide();
     $(".week-img-one, .week-img-two").hover(function(){
 
-        $(".week-img-one").addClass("change-dimensions");
-        $(".week-img-overlay").fadeIn("slow");
+      $(".week-img-one").addClass("change-dimensions");
+      $(".week-img-overlay").fadeIn("slow");
 
-    }, function(){
-        $(".week-img-one").removeClass("change-dimensions");
-        $(".week-img-overlay").fadeOut("slow");
+  }, function(){
+      $(".week-img-one").removeClass("change-dimensions");
+      $(".week-img-overlay").fadeOut("slow");
 
-    });
-</script>
+  });
+  </script>
 </html>
 

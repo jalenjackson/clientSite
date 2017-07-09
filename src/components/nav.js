@@ -22,25 +22,18 @@ export default class Nav extends Component {
                     <div className="left-side-nav-items">
 
                         <NavLink exact activeClassName='active' className="home-link"  to="/">Home</NavLink>
-                        <a className="hover-link">Projects</a>
-                        <NavLink activeClassName="active" className="about-me-link"  to="/about">About Me</NavLink>
-                        <NavLink activeClassName="active" className="fav-music"  to="/music">Favorite Music</NavLink>
+                        <NavLink activeClassName="active" className="about-me-link"  to="/about">About</NavLink>
+                        <NavLink activeClassName="active" className="fav-music"  to="/gallery">Image Gallery</NavLink>
+                        <NavLink activeClassName="active" className="tools"  to="/resume">Resume</NavLink>
+                        <a href="mailto:vagabondrebelart@gmail.com?Subject=Inquiry" activeClassName="active">Contact</a>
 
-
-                        <NavLink activeClassName="active" className="tools"  to="/tools">Tools I Use</NavLink>
 
                     </div>
 
-                    <div className="title-container">
-                        Jalen Jackson
-                    </div>
 
-                    <div className="account-nav-cover-art">
-                        <img className="account-img" src="https://media.giphy.com/media/AEcZfXZZNCcQU/200.gif" />
-                    </div>
+
                 </div>
 
-                <div className="lower-overlay"></div>
 
                 <div className="animated-dropdown">
                     <div className="pulldown-items">

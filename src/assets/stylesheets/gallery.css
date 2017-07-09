@@ -1,0 +1,33 @@
+.gallery {
+    margin-top:200px;
+}
+
+.img-examine {
+    width:40%;
+    display: block;
+    margin: 0 auto;
+    height:auto;
+    padding-bottom:50px;
+    margin-top:50px;
+}
+
+.examine-btn {
+    width:90%;
+    display: block;
+    margin: 0 auto;
+    height:200px;
+    background:rgb(30,30,30);
+    color:white;
+    cursor: pointer;
+    border-radius: .1em;
+    border:none;
+
+    font-size:30px;
+
+}
+
+.gallery h2 {
+    font-size:70px;
+    text-align:center;
+}
+
