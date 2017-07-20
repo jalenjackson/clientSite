@@ -1,0 +1,21 @@
+.news-container-bg p {
+    color:black;
+    text-align: center;
+    font-size:90px;
+    margin-top:140px;
+    font-weight:100;
+    padding-bottom: 50px;
+}
+
+.news-container-bg {
+    margin-left:50px;
+    margin-right: 50px;
+}
+
+.news-container-bg h4{
+    line-height: 32px;
+}
+
+.news-container-bg h5 {
+    margin-top:30px;
+}

@@ -1,0 +1,93 @@
+body{
+  overflow-x: hidden;
+
+}
+
+.route-enter, .route-appear {
+  opacity: 0;
+}
+
+.route-leave {
+  opacity:1;
+  background:red;
+}
+
+.route-appear {
+  opacity: 0;
+  animation: slideUp 0.6s cubic-bezier(0.165,0.84,0.44,1);
+}
+.index-active{
+  border-bottom: 3px solid black;
+}
+
+.slide-enter, .route-appear {
+  opacity: 0;
+}
+
+.slide-leave {
+  opacity:1;
+  background:red;
+}
+
+.slide-appear {
+  opacity: 0;
+  animation: slideLeft2 0.6s cubic-bezier(0.165,0.84,0.44,1);
+}
+
+.go-enter, .go-appear {
+  opacity: 0;
+}
+
+.go-leave {
+  opacity:1;
+  background:red;
+}
+
+
+
+.go-appear {
+  opacity: 0;
+  animation: slideLeft 0.6s cubic-bezier(0.165,0.84,0.44,1);
+}
+
+
+@keyframes slideUp {
+  0%{
+    opacity:0;
+    transform: translate3d(0,100px,0);
+
+  }
+  100%{
+    opacity:1;
+    transform: translate3d(0,0,0);
+  }
+}
+
+@keyframes slideLeft2 {
+  0%{
+    opacity:0;
+    transform: translate3d(500px,0,0);
+
+  }
+  100%{
+    opacity:1;
+    transform: translate3d(0,0,0);
+  }
+}
+
+header{
+  background: url(https://static1.squarespace.com/static/57ffecf946c3c43cac38c6a3/t/581919bf03596e3016c39030/1478040008648/) no-repeat center center;
+  background-size: 100% 100%;
+
+}
+
+.logo-styling {
+  width:70px;
+  height:70px;
+  background:none !important;
+}
+
+a:hover {
+  color:white !important;
+  border-bottom: 5px solid #70cbce;
+}
