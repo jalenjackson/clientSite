@@ -27,6 +27,8 @@ export default class Home extends Component {
                                 </button>
                             </div>
                             <div className="navbar-collapse collapse">
+                                <h4 className="logo-middle home-logo-middle">Pauline And Thomas HealthCare Inc</h4>
+
                                 <ul className="nav navbar-nav navbar-right">
                                     <li><NavLink to="/">Home</NavLink></li>
                                     <li><NavLink to="/vision">Vision</NavLink></li>
@@ -53,7 +55,7 @@ export default class Home extends Component {
 
                             <div className="row header-info">
                                 <div className="col-sm-10 col-sm-offset-1 text-center">
-                                    <h1 className="wow fadeIn">Independece Starts One Step At A Time</h1>
+                                    <h1 className="wow fadeIn">Independence Starts One Step At A Time</h1>
                                     <br />
                                     <p className="lead wow fadeIn" data-wow-delay="0.5s">Pauline & Thomas Healthcares, Inc<br/>
                                         provides the essential support to improve service recipient’s quality of life <br/> by establishing a setting where individuals with Intellectual Disability (ID) <br/> are active participants within the community. </p>
@@ -64,10 +66,10 @@ export default class Home extends Component {
                                         <div className="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
                                             <div className="row">
                                                 <div className="col-xs-6 text-right wow fadeInUp" data-wow-delay="1s">
-                                                    <a href="#be-the-first" className="btn btn-secondary btn-lg scroll">Join Us</a>
+                                                    <a href="#" className="btn btn-secondary btn-lg">Join Us</a>
                                                 </div>
                                                 <div className="col-xs-6 text-left wow fadeInUp" data-wow-delay="1.4s">
-                                                    <a href="#invite" className="btn btn-primary btn-lg scroll">News And Events</a>
+                                                    <NavLink to="/news" className="btn btn-primary btn-lg">News And Events</NavLink>
                                                 </div>
                                             </div>
                                         </div>
@@ -94,7 +96,7 @@ export default class Home extends Component {
                             </div>
 
                             <div className="iphone wow fadeInUp" data-wow-delay="1s">
-                                <img src="https://scontent-dft4-1.xx.fbcdn.net/v/t1.0-9/19029511_309046586219152_4842554810235579311_n.jpg?oh=943bffd31813fc4d38d2aca9893f1422&oe=59FE808C"/>
+                                <img className="img-down" src="https://scontent-dft4-1.xx.fbcdn.net/v/t1.0-9/19029511_309046586219152_4842554810235579311_n.jpg?oh=943bffd31813fc4d38d2aca9893f1422&oe=59FE808C"/>
                             </div>
                         </div>
                     </section>

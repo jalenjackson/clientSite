@@ -81,6 +81,17 @@ header{
 
 }
 
+.logo-middle {
+  position:fixed;
+  top:5px;
+  left:20px;
+  color:white;
+}
+
+.home-logo-middle{
+  top:10px;
+}
+
 .logo-styling {
   width:70px;
   height:70px;

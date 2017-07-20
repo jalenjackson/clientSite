@@ -9,6 +9,8 @@ import ReactCSSTransitionGroup from 'react-transition-group/CSSTransitionGroup'
                         return (
                             <div className="vision-bg">
                                 <div className="vision-navbar">
+                                    <h4 className="logo-middle">Pauline And Thomas HealthCare Inc</h4>
+
                                     <ul className="nav navbar-nav navbar-right move-right">
                                         <li><NavLink to="/">Home</NavLink></li>
                                         <li><NavLink to="/vision" className="vision-active">Vision</NavLink></li>
@@ -18,6 +20,7 @@ import ReactCSSTransitionGroup from 'react-transition-group/CSSTransitionGroup'
                                         <li><NavLink to="contact">Contact Us</NavLink></li>
 
                                     </ul>
+
                                 </div>
                         <div className="vision-container">
 
