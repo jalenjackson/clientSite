@@ -42,7 +42,6 @@ export default class Home extends Component {
                         <div className="container">
                             <div className="row">
 
-                                <h4 className="responsive-name">Pauline And Thomas HealthCare Inc</h4>
 
                                 <div className="col-xs-6">
                                     <a className="responsive-logo" href="index.html"><img src={require("../assets/img/logo.png")} alt="Logo"/></a>
