@@ -18,13 +18,14 @@ export default class Home extends Component {
                             </div>
                             <div className="navbar-header">
                                 <button type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                    <h4 className="logo-middle home-logo-middle responsive-nav-title">Pauline And Thomas HealthCare Inc</h4>
+
                                     <span className="icon-bar"></span>
                                     <span className="icon-bar"></span>
                                     <span className="icon-bar"></span>
                                 </button>
                             </div>
                             <div className="navbar-collapse collapse">
-                                <h4 className="logo-middle home-logo-middle responsive-nav-title">Pauline And Thomas HealthCare Inc</h4>
 
                                 <ul className="nav navbar-nav navbar-right">
                                     <li><NavLink to="/">Home</NavLink></li>
