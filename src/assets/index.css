@@ -91,6 +91,10 @@ body{
     color:white;
   }
 
+  .responsive-h1 {
+    margin-top: 50px;
+  }
+
   .change-height {
     height:240px;
   }
