@@ -50,7 +50,7 @@ export default class Home extends Component {
 
 
                                 <div className="col-xs-6 signin text-right navbar-nav hide-away">
-                                    <a href="#pricing" className="scroll">Home</a>&nbsp; &nbsp;<NavLink to="/vision">Vision</NavLink>&nbsp; &nbsp;<a href="#">Personnel</a>&nbsp; &nbsp;<a href="#">News and Events</a>&nbsp; &nbsp;<a href="#">Sponsors</a>
+                                    <a href="#pricing" className="scroll">Home</a>&nbsp; &nbsp;<NavLink to="/vision">Vision</NavLink>&nbsp; &nbsp;<NavLink to="/personnel">Personnel</NavLink>&nbsp; &nbsp;<NavLink to="/news">News and Events</NavLink>&nbsp; &nbsp;<NavLink to="/sponsors">Sponsors</NavLink>
                                 </div>
                             </div>
 
@@ -91,7 +91,7 @@ export default class Home extends Component {
                                 <div className="col-sm-8 col-sm-offset-2 text-center margin-30 wow fadeIn" data-wow-delay="0.6s">
                                     <h2>We Are A Non Profit Organization</h2>
                                     <p className="lead">Learn more about what to expect here at Pauline And Thomas Healthcare</p>
-                                    <a href="#be-the-first" className="btn btn-secondary btn-lg scroll">Learn More</a>
+                                    <NavLink className="btn btn-secondary btn-lg " to="/vision">Learn More</NavLink>
 
                                 </div>
                             </div>

@@ -14,17 +14,43 @@ export default class Personnel extends Component {
 
             <div className="vision-bg">
                 <div className="vision-navbar">
-                    <h4 className="logo-middle">Pauline And Thomas HealthCare Inc</h4>
+                    <h4 className="logo-middle responsive-vision-logo">Pauline And Thomas HealthCare Inc</h4>
 
-                    <ul className="nav navbar-nav navbar-right move-right">
+                    <ul className="nav navbar-nav navbar-right move-right responsive-vision-ul">
                         <li><NavLink to="/">Home</NavLink></li>
                         <li><NavLink to="/vision" >Vision</NavLink></li>
-                        <li><NavLink to="/personnel" className="vision-active">Personnel</NavLink></li>
+                        <li><NavLink to="/personnel">Personnel</NavLink></li>
                         <li><NavLink to="/news">News and Events</NavLink></li>
                         <li><NavLink to="/sponsors">Sponsors</NavLink></li>
                         <li><NavLink to="contact">Contact Us</NavLink></li>
-
                     </ul>
+
+                </div>
+                <div className="navbar navbar-inverse navbar-fixed-top">
+                    <div className="container">
+                        <div className="responsive-navigation">
+                        </div>
+                        <div className="navbar-header">
+                            <button type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <h4 className="logo-middle home-logo-middle responsive-nav-title">Pauline And Thomas HealthCare Inc</h4>
+
+                                <span className="icon-bar"></span>
+                                <span className="icon-bar"></span>
+                                <span className="icon-bar"></span>
+                            </button>
+                        </div>
+                        <div className="navbar-collapse collapse">
+
+                            <ul className="nav navbar-nav navbar-right">
+                                <li><NavLink to="/">Home</NavLink></li>
+                                <li><NavLink to="/vision">Vision</NavLink></li>
+                                <li><NavLink to="/personnel">Personnel</NavLink></li>
+                                <li><NavLink to="/news">News and Events</NavLink></li>
+                                <li><NavLink to="/sponsors">Sponsors</NavLink></li>
+                                <li><NavLink to="contact">Contact Us</NavLink></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
                 <ReactCSSTransitionGroup
                     component="div"
@@ -62,7 +88,7 @@ export default class Personnel extends Component {
                                 </ul>
                             </div>
 
-                            <div className="col-sm-4 pricing-container wow fadeInUp" data-wow-delay="1.3s">
+                            <div className="col-sm-4 pricing-container wow fadeInUp responsive-personnel" data-wow-delay="1.3s">
                                 <br />
                                 <ul className="list-unstyled pricing-table text-center">
                                     <li className="headline"><h5 className="white">Nick Mmbaga</h5></li>
