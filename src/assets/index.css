@@ -24,9 +24,10 @@ body{
     width:20px !important;
     height:20px !important;
     transform:scale(0.5) !important;
-    position: absolute;
+    position: relative;
     top:0px;
     left:0;
+    margin-top:50px;
     display: block;
   }
 
