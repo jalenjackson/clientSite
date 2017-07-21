@@ -11,14 +11,7 @@ export default class Home extends Component {
 
         return (
             <div className="home-container">
-                <ReactCSSTransitionGroup
-                    component="div"
-                    transitionName="route"
-                    transitionEnterTimeout={600}
-                    transitionAppearTimeout={600}
-                    transitionLeaveTimeout={400}
-                    transitionAppear={true}
-                >
+
                     <div className="navbar navbar-inverse navbar-fixed-top">
                         <div className="container">
                             <div className="responsive-navigation">
@@ -222,7 +215,6 @@ export default class Home extends Component {
 
                         </div>
                     </footer>
-                 </ReactCSSTransitionGroup>
             </div>
         )
     }
