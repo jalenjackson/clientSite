@@ -14,6 +14,8 @@ export default class Personnel extends Component {
 
             <div className="vision-bg">
                 <div className="vision-navbar">
+                    <h4 className="logo-middle">Pauline And Thomas HealthCare Inc</h4>
+
                     <ul className="nav navbar-nav navbar-right move-right">
                         <li><NavLink to="/">Home</NavLink></li>
                         <li><NavLink to="/vision" >Vision</NavLink></li>

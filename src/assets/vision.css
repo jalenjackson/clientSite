@@ -33,22 +33,11 @@ a:hover{
 }
 
 
-.move-right {
-    margin-right: 50px;
-    margin-top:5px;
-}
+
 .vision-active{
     border-bottom: 3px solid black;
 }
-.vision-navbar{
-    position: fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:50px;
-    background:#4ec3cd;
 
-}
 
 .vision-container h1 {
     border-bottom: 2px solid rgba(250,250,255,1);

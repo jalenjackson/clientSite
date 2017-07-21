@@ -18,7 +18,6 @@ import ReactCSSTransitionGroup from 'react-transition-group/CSSTransitionGroup'
                                         <li><NavLink to="/news">News and Events</NavLink></li>
                                         <li><NavLink to="/sponsors">Sponsors</NavLink></li>
                                         <li><NavLink to="contact">Contact Us</NavLink></li>
-
                                     </ul>
 
                                 </div>

@@ -88,6 +88,21 @@ header{
   color:white;
 }
 
+.move-right {
+  margin-right: 50px !important;
+  margin-top:5px !important;
+}
+
+.vision-navbar{
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:50px;
+  background:#4ec3cd;
+
+}
+
 .home-logo-middle{
   top:10px;
 }
