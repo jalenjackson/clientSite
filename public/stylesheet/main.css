@@ -601,8 +601,20 @@ footer {
    Mobile styles
    ========================================================================== */
 /* Landscape phones and down */
-@media (max-width: 480px) { 
+@media (max-width: 480px) {
+    header{
+        background-size:cover !important;
+    }
 
+    .responsive-h1 {
+        font-size:30px;
+        margin-top:50px;
+    }
+
+    .responsive-logo{
+        width:20px !important;
+        height:20px !important;
+    }
 .btn-lg {
   font-size: 12.5px;
   line-height: 1.33;
@@ -646,6 +658,9 @@ footer {
 #be-the-first { 
       background-attachment: scroll;
   }
+    header{
+        background-size:cover !important;
+    }
   
 }
 

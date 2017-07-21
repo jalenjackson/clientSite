@@ -6,7 +6,9 @@ import { NavLink } from 'react-router-dom'
 
 import ReactCSSTransitionGroup from 'react-transition-group/CSSTransitionGroup'
 export default class Home extends Component {
+
     render(){
+
         return (
             <div className="home-container">
                 <ReactCSSTransitionGroup
@@ -19,6 +21,8 @@ export default class Home extends Component {
                 >
                     <div className="navbar navbar-inverse navbar-fixed-top">
                         <div className="container">
+                            <div className="responsive-navigation">
+                            </div>
                             <div className="navbar-header">
                                 <button type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                                     <span className="icon-bar"></span>
@@ -27,7 +31,7 @@ export default class Home extends Component {
                                 </button>
                             </div>
                             <div className="navbar-collapse collapse">
-                                <h4 className="logo-middle home-logo-middle">Pauline And Thomas HealthCare Inc</h4>
+                                <h4 className="logo-middle home-logo-middle responsive-nav-title">Pauline And Thomas HealthCare Inc</h4>
 
                                 <ul className="nav navbar-nav navbar-right">
                                     <li><NavLink to="/">Home</NavLink></li>
@@ -36,7 +40,6 @@ export default class Home extends Component {
                                     <li><NavLink to="/news">News and Events</NavLink></li>
                                     <li><NavLink to="/sponsors">Sponsors</NavLink></li>
                                     <li><NavLink to="contact">Contact Us</NavLink></li>
-
                                 </ul>
                             </div>
                         </div>
@@ -45,19 +48,24 @@ export default class Home extends Component {
                     <header>
                         <div className="container">
                             <div className="row">
+
+                                <h4 className="responsive-name">Pauline And Thomas HealthCare Inc</h4>
+
                                 <div className="col-xs-6">
-                                    <a href="index.html"><img src={require("../assets/img/logo.png")} alt="Logo"/></a>
+                                    <a className="responsive-logo" href="index.html"><img src={require("../assets/img/logo.png")} alt="Logo"/></a>
                                 </div>
-                                <div className="col-xs-6 signin text-right navbar-nav">
+
+
+                                <div className="col-xs-6 signin text-right navbar-nav hide-away">
                                     <a href="#pricing" className="scroll">Home</a>&nbsp; &nbsp;<NavLink to="/vision">Vision</NavLink>&nbsp; &nbsp;<a href="#">Personnel</a>&nbsp; &nbsp;<a href="#">News and Events</a>&nbsp; &nbsp;<a href="#">Sponsors</a>
                                 </div>
                             </div>
 
                             <div className="row header-info">
                                 <div className="col-sm-10 col-sm-offset-1 text-center">
-                                    <h1 className="wow fadeIn">Independence Starts One Step At A Time</h1>
+                                    <h1 className="wow fadeIn responsive-h1">Independence Starts One Step At A Time</h1>
                                     <br />
-                                    <p className="lead wow fadeIn" data-wow-delay="0.5s">Pauline & Thomas Healthcares, Inc<br/>
+                                    <p className="lead wow fadeIn responsive-heading" data-wow-delay="0.5s">Pauline & Thomas Healthcares, Inc<br/>
                                         provides the essential support to improve service recipient’s quality of life <br/> by establishing a setting where individuals with Intellectual Disability (ID) <br/> are active participants within the community. </p>
                                     <br />
 
@@ -66,10 +74,10 @@ export default class Home extends Component {
                                         <div className="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
                                             <div className="row">
                                                 <div className="col-xs-6 text-right wow fadeInUp" data-wow-delay="1s">
-                                                    <a href="#" className="btn btn-secondary btn-lg">Join Us</a>
+                                                    <a href="#" className="btn btn-secondary btn-lg responsive-btn-move">Join Us</a>
                                                 </div>
                                                 <div className="col-xs-6 text-left wow fadeInUp" data-wow-delay="1.4s">
-                                                    <NavLink to="/news" className="btn btn-primary btn-lg">News And Events</NavLink>
+                                                    <NavLink to="/news" className="btn btn-primary btn-lg responsive-btn-move">News And Events</NavLink>
                                                 </div>
                                             </div>
                                         </div>
@@ -129,7 +137,6 @@ export default class Home extends Component {
                             <div className="row margin-40">
                                 <div className="col-sm-8 col-sm-offset-2 text-center">
                                     <h2 className="white">Meet The Owners</h2>
-                                    <p className="white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam viverra orci ut.</p>
                                 </div>
                             </div>
 
@@ -152,7 +159,7 @@ export default class Home extends Component {
                                     </ul>
                                 </div>
 
-                                <div className="col-sm-4 pricing-container wow fadeInUp" data-wow-delay="1.3s">
+                                <div className="col-sm-4 pricing-container wow fadeInUp responsive-table" data-wow-delay="1.3s">
                                     <br />
                                     <ul className="list-unstyled pricing-table text-center">
                                         <li className="headline"><h5 className="white">Nick Mmbaga</h5></li>
@@ -220,3 +227,4 @@ export default class Home extends Component {
         )
     }
 }
+
