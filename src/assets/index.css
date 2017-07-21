@@ -17,19 +17,10 @@ body{
 }
 
 @media (max-width: 480px) {
-  .responsive-name, .responsive-logo, .responsive-nav-title, .responsive-table, .responsive-navbar, .responsive-nav {
+  .responsive-name,  .responsive-nav-title, .responsive-table, .responsive-navbar, .responsive-nav {
     display:block !important;
   }
-  .responsive-logo {
-    width:20px !important;
-    height:20px !important;
-    transform:scale(0.5) !important;
-    position: relative;
-    top:0px;
-    left:0;
-    margin-top:50px;
-    display: block;
-  }
+
 
   .responsive-name{
     color:white;
